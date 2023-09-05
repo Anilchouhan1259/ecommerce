@@ -32,7 +32,7 @@ const ProductDetail = () => {
         "loading...."
       ) : (
         <div className="m-10">
-          <div className="grid grid-cols-2">
+          <div className="block md:grid md:grid-cols-2">
             <div className="">
               <div className="">
                 <img

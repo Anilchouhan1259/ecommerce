@@ -6,8 +6,8 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="flex mx-auto flex-wrap items-center p-3 justify-between">
-      <div className="">
+    <nav className="flex font-[Manrope] items-center flex-wrap justify-between max-w-[95%] m-auto py-2">
+      <div className="flex items-center">
         <NavLink to="/">
           <img src="../logo.png" className="h-12 w-auto" />
         </NavLink>
@@ -16,22 +16,47 @@ const Header = () => {
         <RxHamburgerMenu />
       </div>
       <div
-        className={`w-full block flex-grow justify-between lg:flex lg:items-center lg:w-auto ${
+        className={`w-full block  lg:flex lg:items-center lg:w-auto ${
           isOpen ? "block" : "hidden"
         }`}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
       >
-        <div className="block flex md:gap-6 flex-col md:ml-[25rem]  text-sm font-semibold md:flex-row text-gray-900 h-auto ">
-          <NavLink to="/category/electronics">Electronics</NavLink>
-          <NavLink to="/category/men's clothing">Mens Clothing</NavLink>
-          <NavLink to="/category/women's clothing">Womens Clothing</NavLink>
-          <NavLink to="/category/jewelery">Jewelery</NavLink>
-        </div>
-        <div className="flex flex-col md:flex-row gap-x-4">
-          <NavLink to="/cart" className="flex">
-            <BsCartFill />
-            <span>cart</span>
+        <div className="lg:flex-grow">
+          <NavLink
+            className="block mt-1 lg:inline-block lg:mt-0 text-white-200 mr-4"
+            to="/category/electronics"
+          >
+            Electronics
           </NavLink>
-          <NavLink to="/login">login</NavLink>
+          <NavLink
+            className="block mt-1 lg:inline-block lg:mt-0 text-white-200 mr-4"
+            to="/category/men's clothing"
+          >
+            Mens Clothing
+          </NavLink>
+          <NavLink
+            className="block mt-1 lg:inline-block lg:mt-0 text-white-200 mr-4"
+            to="/category/women's clothing"
+          >
+            Womens Clothing
+          </NavLink>
+          <NavLink
+            className="block mt-1 lg:inline-block lg:mt-0 text-white-200 mr-4"
+            to="/category/jewelery"
+          >
+            Jewelery
+          </NavLink>
+        </div>
+        <div className=" md:flex items-center ">
+          <NavLink to="/cart" className="flex items-center mr-4">
+            <BsCartFill />
+            <span className="px-2">cart</span>
+          </NavLink>
+          <NavLink className="mr-4" to="/login">
+            login
+          </NavLink>
         </div>
       </div>
     </nav>
